@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="res/css/base.css">
+  <link rel="stylesheet" href="res/css/base-responsive.css">
+  <link rel="stylesheet" href="res/css/site.css">
+  <meta name="description" content="">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+</head>
+
+<body>
+
+    <div class="dp-row" id="header">
+        <div class="dp-col-6 vcenter"><img src="res/img/logo.png" style="width: 150px; margin: 20px 0px 0px 0px;"></div>
+        <div class="dp-col-6 dp-text-right vcenter">
+            <button class="btn-gs" style="color: #fff;">Get Started</button>
+            <button class="text-btn" style="color: #555;" onclick="toggleMenu()">&#9776;</button>
+        </div>
+    </div>
+
+    <div id="offcanvasMenu" class="offcanvas-menu">
+        <button class="text-btn" style="color: #fff; position:absolute; top:10px; right:10px; font-size: 35px;" onclick="toggleMenu()">&times;</button>
+        <ul>
+            <li><a href="#" class="text-white text-decoration-none">Home</a></li>
+            <li><a href="#" class="text-white text-decoration-none">About</a></li>
+            <li><a href="#" class="text-white text-decoration-none">Services</a></li>
+            <li><a href="#" class="text-white text-decoration-none">Contact</a></li>
+        </ul>
+    </div>
+
+    <div class="dp-row" id="banner">
+        <div class="dp-col-12">Streamlining the deployment, <br />integration, and testing of <br />Argument Mining modules</div>
+    </div>
+
+    <div class="dp-row" id="content">
+        <div class="dp-col-3 step" id="step1">
+            <div class="steplabel"><span>Step 1:</span> Enter Text</div>
+            <div class="stepbox"></div>
+        </div>
+        <div class="dp-col-6 step" id="step2">
+            <div class="steplabel"><span>Step 2:</span> Select Workflow</div>
+            <div class="stepbox"></div>
+
+        </div>
+        <div class="dp-col-3 step" id="step3">
+            <div class="steplabel"><span>Step 3:</span> Get Results</div>
+            <div class="stepbox"></div>
+
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('offcanvasMenu').classList.toggle('active');
+        }
+    </script>
+
+</body>
+
+</html>

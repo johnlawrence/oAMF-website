@@ -1,0 +1,68 @@
+body,html {
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.dp-text-right {
+    text-align: right;
+    justify-content: right;
+}
+
+.dp-row {
+    display: grid;
+    grid-template-areas: '. . . . . . . . . . . .';
+    grid-gap: 0px;  
+}
+
+.vcenter {
+    margin: auto 0px;
+}
+
+.dp-col-1 {
+    grid-area: auto / auto / auto / span 1;
+}
+
+.dp-col-2 {
+    grid-area: auto / auto / auto / span 2;
+}
+
+.dp-col-3 {
+    grid-area: auto / auto / auto / span 3;
+}
+
+.dp-col-4 {
+    grid-area: auto / auto / auto / span 4;
+}
+
+.dp-col-5 {
+    grid-area: auto / auto / auto / span 5;
+}
+
+.dp-col-6 {
+    grid-area: auto / auto / auto / span 6;
+}
+
+.dp-col-7 {
+    grid-area: auto / auto / auto / span 7;
+}
+
+.dp-col-8 {
+    grid-area: auto / auto / auto / span 8;
+}
+
+.dp-col-9 {
+    grid-area: auto / auto / auto / span 9;
+}
+
+.dp-col-10 {
+    grid-area: auto / auto / auto / span 10;
+}
+
+.dp-col-11 {
+    grid-area: auto / auto / auto / span 11;
+}
+
+.dp-col-12 {
+    grid-area: auto / auto / auto / span 12;
+}
