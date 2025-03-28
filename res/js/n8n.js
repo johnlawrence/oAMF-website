@@ -56,7 +56,7 @@ document.getElementById('triggerWebhookButton').addEventListener('click', () => 
     }
 
     //const selectedWorkflow = document.getElementById('workflow1Checkbox').checked ? webhookUrl1 : webhookUrl2;
-    const selectedWorkflow = webhookUrl1;
+    const selectedWorkflow = webhookUrl2;
     const apiKey = selectedWorkflow === webhookUrl1 ? apiKey1 : apiKey2;
 
     const localurl = "https://oamf.arg.tech/helpers/poster.php?url=" + selectedWorkflow + "&apiKey=" + apiKey;
