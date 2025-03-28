@@ -16,8 +16,9 @@ function toggleWorkflows() {
 
 function sendToSvgService(jsonData) {
     console.log("Sending to SVG Service:", JSON.stringify(jsonData, null, 2));
+    const localsvgurl = "https://oamf.arg.tech/helpers/poster.php?svg=1&url=" + svgServiceUrl;
 
-    fetch(svgServiceUrl, {
+    fetch(localsvgurl, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -61,14 +62,6 @@ document.getElementById('triggerWebhookButton').addEventListener('click', () => 
 
     const localurl = "https://oamf.arg.tech/helpers/poster.php?url=" + selectedWorkflow + "&apiKey=" + apiKey;
 
-    // fetch(selectedWorkflow, {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json',
-    //         'X-N8N-API-KEY': apiKey,
-    //     },
-    //     body: JSON.stringify({ text: userInput }),
-    // })
     fetch(localurl, {
             method: 'POST',
             headers: {
@@ -86,7 +79,8 @@ document.getElementById('triggerWebhookButton').addEventListener('click', () => 
     })
     .then(data => {
         console.log('Webhook Response Data:', data);
-        //document.getElementById('responseData').textContent = JSON.stringify(data, null, 2);
+        document.getElementById('rjson').innerHTML = JSON.stringify(data, null, 2);
+        document.getElementById("resultsmodal").style.display = "block";
         sendToSvgService(data); // Send JSON response to SVG service
     })
     .catch(error => {
