@@ -19,13 +19,13 @@ div#banner {
     background-position: right bottom;
     background-repeat: no-repeat;
     background-size: contain;
-    padding: 80px 8% 100px 8%;
+    padding: 70px 8% 90px 8%;
     font-size: 45px;
     font-weight: 300;
 }
 
-div#content {
-    padding: 30px 8% 30px 8%;
+div.content {
+    padding: 0px 8% 30px 8%;
 }
 
 .text-btn {
@@ -155,7 +155,7 @@ div.bottom-buttons {
 
 
   .workflow-container {
-    margin-top: 5px;
+    margin-top: 0px;
     background-color: #fff;
     padding: 0px;
     border-radius: 10px;
@@ -168,15 +168,8 @@ div.bottom-buttons {
     margin-bottom: 20px;
   }
 
-  .embedded_workflow.frame {
-    background-color: transparent !important;
-  }
-  .embedded_tip {
-	display: none !important;
-  }
-
   n8n-demo {
-    --n8n-frame-background-color: #fafafa;
+    --n8n-frame-background-color: transparent;
     --n8n-json-background-color: #f0f0f0;
     --n8n-copy-button-background-color: #ccc;
     --n8n-workflow-min-height: 280px;
