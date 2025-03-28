@@ -230,6 +230,10 @@ div.bottom-buttons {
     text-align: center;
   }
 
+  div#svgContainer svg {
+    width: 100%;
+  }
+
   body.loading #loadsymbol {
     animation: zoom-in-zoom-out 1s ease infinite;
   }
