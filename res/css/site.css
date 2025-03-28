@@ -215,3 +215,17 @@ div.bottom-buttons {
     text-decoration: none;
     cursor: pointer;
   }
+
+  div#rjson {
+    width: 40%;
+    background-color: #eee;
+    padding: 2%;
+    display: inline-block;
+  }
+
+  div#svgContainer {
+    width: 40%;
+    float: right;
+    margin-top: 20px; 
+    text-align: center;
+  }
