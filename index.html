@@ -25,7 +25,7 @@
     <div id="resultsmodal" class="modal">
         <!-- Modal content -->
         <div class="modal-content">
-            <span class="modalclose">&times;</span>
+            <span id="modalclose">&times;</span>
             <div id="rjson"></div>
             <div id="svgContainer" style="margin-top: 20px; text-align: center;">
                 <h3>Argument Graph</h3>
@@ -379,7 +379,7 @@ Speaker2: There are all sorts of other innovations happening. Matt Hancock talke
         function toggleMenu() {
             document.getElementById('offcanvasMenu').classList.toggle('active');
         }
-        document.getElementsByClassName("modalclose").span.onclick = function() {
+        document.getElementsByClassName("modalclose").onclick = function() {
             document.getElementById('resultsmodal').style.display = "none";
         }
     </script>

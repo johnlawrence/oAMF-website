@@ -203,15 +203,15 @@ div.bottom-buttons {
   }
   
   /* The Close Button */
-  .close {
+  #modalclose {
     color: #aaaaaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
   }
   
-  .close:hover,
-  .close:focus {
+  #modalcloseclose:hover,
+  #modalcloseclose:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
