@@ -2,7 +2,6 @@
 header('Content-type: application/json');
 
 if(isset($_GET['apiKey'])){
-    print_r($_POST);
 
     $entityBody = file_get_contents('php://input');
     $url = $_GET['url'];
