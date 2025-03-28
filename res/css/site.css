@@ -56,6 +56,16 @@ div#content {
     background-color: #fff;
 }
 
+.btn-pp {
+    padding: 6px 40px;
+    border-radius: 50vh;
+    font-family: "Roboto", sans-serif;
+    margin: 20px 0px 0px 0px;
+    border: 0px;
+    background-color: #573eff;
+}
+
+
 .offcanvas-menu {
     position: fixed;
     top: 0;
