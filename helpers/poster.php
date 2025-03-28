@@ -16,6 +16,7 @@ if(isset($_GET['apiKey'])){
         'Content-Type: application/json',
         'X-N8N-API-KEY: '. $_GET['apiKey']
     ]);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true); 
 
     //execute post
     $result = curl_exec($ch);
