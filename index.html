@@ -10,6 +10,10 @@
   <link rel="stylesheet" href="res/css/site.css">
   <meta name="description" content="">
 
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@n8n_io/n8n-demo-component/n8n-demo.bundled.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2.0.0/webcomponents-loader.js"></script>
+  <script src="https://www.unpkg.com/lit@2.0.0-rc.2/polyfill-support.js"></script>
+
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="icon.png">
@@ -36,22 +40,315 @@
     </div>
 
     <div class="dp-row" id="banner">
-        <div class="dp-col-12">Streamlining the deployment, <br />integration, and testing of <br />Argument Mining modules</div>
+        <div id="banner-content" class="dp-col-12">Streamlining the deployment, <br />integration, and testing of <br />Argument Mining modules</div>
     </div>
 
     <div class="dp-row" id="content">
         <div class="dp-col-3 step" id="step1">
             <div class="steplabel"><span>Step 1:</span> Enter Text</div>
-            <div class="stepbox"></div>
+            <div class="stepbox">
+                <textarea class="entertext">Speaker1: Experience in the Isle of Wight shows you can do effective contact tracing without the app. The app is helpful. The app adds something to it.
+
+Speaker2: There are all sorts of other innovations happening. Matt Hancock talked about a test being deployed today that gives you a result in 20 minutes. We have had advances in antibody testing today as well. So the science is really beginning to catch up with this disease. For me the science is really what gives me hope for the future. Hope we can move beyond the strange circumstances of the last few weeks and return to something of a normal life, as the months go by.</textarea>
+                <div class="bottom-buttons">
+                    <button class="btn-bt" style="color: #666;">Select Text</button>
+                    <!--<button class="btn-bt" style="color: #666;">Edit Text</button>-->
+                </div>
+            </div>
         </div>
         <div class="dp-col-6 step" id="step2">
             <div class="steplabel"><span>Step 2:</span> Select Workflow</div>
-            <div class="stepbox"></div>
+            <div class="stepbox">
+                <div id="workflow1" class="workflow-container">
+                    <n8n-demo id="workflow1Visualization" workflow='{
+                      "name": "My workflow 4",
+                      "nodes": [
+                        {
+                          "parameters": {
+                            "httpMethod": "POST",
+                            "path": "47c193b6-988b-45af-b777-bff42ca01f3c",
+                            "responseMode": "responseNode",
+                            "options": {}
+                          },
+                          "id": "ddfe2823-6eac-489d-98a6-3062db6f5e24",
+                          "name": "Webhook",
+                          "type": "n8n-nodes-base.webhook",
+                          "typeVersion": 1,
+                          "position": [
+                            -460,
+                            -660
+                          ],
+                          "webhookId": "47c193b6-988b-45af-b777-bff42ca01f3b"
+                        },
+                        {
+                          "parameters": {
+                            "keepOnlySet": "=true",
+                            "values": {
+                              "string": [
+                                {
+                                  "name": "text",
+                                  "value": "={{$json[\"body\"][\"text\"]}}"
+                                },
+                                {
+                                  "name": "AIF",
+                                  "value": "{}"
+                                }
+                              ],
+                              "boolean": [
+                                {
+                                  "name": "dialog",
+                                  "value": true
+                                }
+                              ]
+                            },
+                            "options": {}
+                          },
+                          "name": "Set Dialog Text",
+                          "type": "n8n-nodes-base.set",
+                          "typeVersion": 1,
+                          "position": [
+                            -220,
+                            -660
+                          ],
+                          "id": "f3c3fdb5-a12f-4217-8ef9-f586ae58def0"
+                        },
+                        {
+                          "parameters": {
+                            "functionCode": "return items;"
+                          },
+                          "name": "Text to JSON",
+                          "type": "n8n-nodes-base.function",
+                          "typeVersion": 1,
+                          "position": [
+                            40,
+                            -660
+                          ],
+                          "id": "5c7bb9d8-cfe1-41b6-b904-01ead4859f45"
+                        },
+                        {
+                          "parameters": {
+                            "mode": "jsonToBinary",
+                            "options": {
+                              "fileName": "file.json",
+                              "mimeType": "text/plain"
+                            }
+                          },
+                          "name": "JSON to File",
+                          "type": "n8n-nodes-base.moveBinaryData",
+                          "typeVersion": 1,
+                          "position": [
+                            280,
+                            -660
+                          ],
+                          "id": "368af8f3-720e-4178-ae0a-2a87473bbf08"
+                        },
+                        {
+                          "parameters": {
+                            "respondWith": "binary",
+                            "options": {}
+                          },
+                          "id": "64d3a922-c617-4853-a45f-ec969d3c5e7d",
+                          "name": "Respond to Webhook",
+                          "type": "n8n-nodes-base.respondToWebhook",
+                          "typeVersion": 1,
+                          "position": [
+                            760,
+                            -400
+                          ]
+                        },
+                        {
+                          "parameters": {
+                            "requestMethod": "POST",
+                            "url": "http://default-turninator.amfws.arg.tech/turninator-01",
+                            "responseFormat": "file",
+                            "jsonParameters": true,
+                            "options": {
+                              "bodyContentType": "multipart-form-data"
+                            },
+                            "sendBinaryData": true
+                          },
+                          "name": "default-turn-separator–Gemechu-2025",
+                          "type": "n8n-nodes-base.httpRequest",
+                          "typeVersion": 1,
+                          "position": [
+                            -220,
+                            -400
+                          ],
+                          "id": "1064bef1-b067-4e67-a743-05e4e56307ce"
+                        },
+                        {
+                          "parameters": {
+                            "requestMethod": "POST",
+                            "url": "http://default-segmenter.amfws.arg.tech/segmenter-01",
+                            "responseFormat": "file",
+                            "jsonParameters": true,
+                            "options": {
+                              "bodyContentType": "multipart-form-data"
+                            },
+                            "sendBinaryData": true
+                          },
+                          "name": "default-segmenter–Gemechu-2025",
+                          "type": "n8n-nodes-base.httpRequest",
+                          "typeVersion": 1,
+                          "position": [
+                            40,
+                            -400
+                          ],
+                          "id": "e2b13db6-ea70-4e84-a9c7-40621445127c"
+                        },
+                        {
+                          "parameters": {
+                            "requestMethod": "POST",
+                            "url": "http://default-proposition-unitiser.amfws.arg.tech/propositionUnitizer-01",
+                            "responseFormat": "file",
+                            "jsonParameters": true,
+                            "options": {
+                              "bodyContentType": "multipart-form-data"
+                            },
+                            "sendBinaryData": true
+                          },
+                          "name": "simple-propositionaliser–Gemechu-2025",
+                          "type": "n8n-nodes-base.httpRequest",
+                          "typeVersion": 1,
+                          "position": [
+                            280,
+                            -400
+                          ],
+                          "id": "8379b3b1-1b18-4e80-8dc8-b48aae8d9d54",
+                          "notesInFlow": false
+                        },
+                        {
+                          "parameters": {
+                            "requestMethod": "POST",
+                            "url": "http://bert-te.amfws.arg.tech/bert-te",
+                            "responseFormat": "file",
+                            "jsonParameters": true,
+                            "options": {
+                              "bodyContentType": "multipart-form-data"
+                            },
+                            "sendBinaryData": true
+                          },
+                          "name": "default-textual-entailment-recogniser– Gemechu-2025",
+                          "type": "n8n-nodes-base.httpRequest",
+                          "typeVersion": 1,
+                          "position": [
+                            520,
+                            -400
+                          ],
+                          "id": "14d3c41c-ba01-4ae9-8e9c-8e3e6fedc867"
+                        }
+                      ],
+                      "pinData": {},
+                      "connections": {
+                        "Webhook": {
+                          "main": [
+                            [
+                              {
+                                "node": "Set Dialog Text",
+                                "type": "main",
+                                "index": 0
+                              }
+                            ]
+                          ]
+                        },
+                        "Set Dialog Text": {
+                          "main": [
+                            [
+                              {
+                                "node": "Text to JSON",
+                                "type": "main",
+                                "index": 0
+                              }
+                            ]
+                          ]
+                        },
+                        "Text to JSON": {
+                          "main": [
+                            [
+                              {
+                                "node": "JSON to File",
+                                "type": "main",
+                                "index": 0
+                              }
+                            ]
+                          ]
+                        },
+                        "JSON to File": {
+                          "main": [
+                            [
+                              {
+                                "node": "default-turn-separator–Gemechu-2025",
+                                "type": "main",
+                                "index": 0
+                              }
+                            ]
+                          ]
+                        },
+                        "default-turn-separator–Gemechu-2025": {
+                          "main": [
+                            [
+                              {
+                                "node": "default-segmenter–Gemechu-2025",
+                                "type": "main",
+                                "index": 0
+                              }
+                            ]
+                          ]
+                        },
+                        "default-segmenter–Gemechu-2025": {
+                          "main": [
+                            [
+                              {
+                                "node": "simple-propositionaliser–Gemechu-2025",
+                                "type": "main",
+                                "index": 0
+                              }
+                            ]
+                          ]
+                        },
+                        "simple-propositionaliser–Gemechu-2025": {
+                          "main": [
+                            [
+                              {
+                                "node": "default-textual-entailment-recogniser– Gemechu-2025",
+                                "type": "main",
+                                "index": 0
+                              }
+                            ]
+                          ]
+                        },
+                        "default-textual-entailment-recogniser– Gemechu-2025": {
+                          "main": [
+                            [
+                              {
+                                "node": "Respond to Webhook",
+                                "type": "main",
+                                "index": 0
+                              }
+                            ]
+                          ]
+                        }
+                      },
+                      "active": true,
+                      "settings": {},
+                      "versionId": "eaf1bc9f-19ea-4beb-8925-b795994c2f5f",
+                      "id": "24",
+                      "meta": {
+                        "instanceId": "6c15c90718aef4097bd8fbcc243a18fdc314a5b141f1af67f7e31c7420cb8f87"
+                      },
+                      "tags": []
+                    }' frame="true"></n8n-demo>
+                  </div>
+
+
+            </div>
 
         </div>
         <div class="dp-col-3 step" id="step3">
             <div class="steplabel"><span>Step 3:</span> Get Results</div>
-            <div class="stepbox"></div>
+            <div class="stepbox">
+                Lorem ipsum dolor sit amet
+            </div>
 
         </div>
     </div>
