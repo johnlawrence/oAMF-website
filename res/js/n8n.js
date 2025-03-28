@@ -79,7 +79,7 @@ document.getElementById('triggerWebhookButton').addEventListener('click', () => 
     })
     .then(data => {
         console.log('Webhook Response Data:', data);
-        document.getElementById('rjson').innerHTML = JSON.stringify(data, null, 2);
+        document.getElementById("rjson").innerHTML = JSON.stringify(data, null, 2);
         document.getElementById("resultsmodal").style.display = "block";
         sendToSvgService(data); // Send JSON response to SVG service
     })
