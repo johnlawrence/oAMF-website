@@ -229,3 +229,19 @@ div.bottom-buttons {
     margin-top: 20px; 
     text-align: center;
   }
+
+  body.loading #loadsymbol {
+    animation: zoom-in-zoom-out 1s ease infinite;
+  }
+  
+  @keyframes zoom-in-zoom-out {
+    0% {
+      scale: 100%;
+    }
+    50% {
+      scale: 150%;
+    }
+    100% {
+      scale: 100%;
+    }
+  }

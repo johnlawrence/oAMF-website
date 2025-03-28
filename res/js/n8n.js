@@ -55,7 +55,8 @@ document.getElementById('triggerWebhookButton').addEventListener('click', () => 
         alert("Please enter text before triggering the workflow.");
         return;
     }
-
+    document.getElementById('triggerWebhookButton').style.display = "none";
+    $("body").addClass("loading"); 
     //const selectedWorkflow = document.getElementById('workflow1Checkbox').checked ? webhookUrl1 : webhookUrl2;
     const selectedWorkflow = webhookUrl2;
     const apiKey = selectedWorkflow === webhookUrl1 ? apiKey1 : apiKey2;
@@ -79,9 +80,11 @@ document.getElementById('triggerWebhookButton').addEventListener('click', () => 
     })
     .then(data => {
         console.log('Webhook Response Data:', data);
-        document.getElementById("rjson").innerHTML = JSON.stringify(data, null, 2);
+        document.getElementById("rjson").innerHTML = "<pre" + JSON.stringify(data, null, 2) + "</pre>";
         document.getElementById("resultsmodal").style.display = "block";
         sendToSvgService(data); // Send JSON response to SVG service
+        document.getElementById('triggerWebhookButton').style.display = "block";
+        $("body").removeClass("loading"); 
     })
     .catch(error => {
         console.error('Error:', error);
