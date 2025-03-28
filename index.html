@@ -359,8 +359,8 @@ Speaker2: There are all sorts of other innovations happening. Matt Hancock talke
                   <div class="bottom-buttons">
                     <button class="btn-bt" style="color: #666;" onclick="selwf()">Select Workflow</button>
                     <div id="wfdd" class="dropdown-content">
-                        <a href="#">Workflow 1</a>
-                        <a href="#">Workflow 2</a>
+                        <a onclick="selwf()">Workflow 1</a>
+                        <a onclick="selwf()">Workflow 2</a>
                       </div>
                     <button class="btn-bt" style="color: #666;" onclick="location.href='https://n8n.oamf.arg.tech/workflow/1'">Edit Workflow</button>
                   </div>
@@ -388,6 +388,18 @@ Speaker2: There are all sorts of other innovations happening. Matt Hancock talke
         }
         function seltxt() {
             document.getElementById("txtdd").classList.toggle("show");
+        }
+        window.onclick = function(event) {
+        if (!event.target.matches('.btn-bt')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+            }
+        }
         }
         document.getElementById("modalclose").onclick = function() {
             document.getElementById('resultsmodal').style.display = "none";
