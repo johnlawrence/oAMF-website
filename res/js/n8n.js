@@ -59,14 +59,24 @@ document.getElementById('triggerWebhookButton').addEventListener('click', () => 
     const selectedWorkflow = webhookUrl1;
     const apiKey = selectedWorkflow === webhookUrl1 ? apiKey1 : apiKey2;
 
-    fetch(selectedWorkflow, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'X-N8N-API-KEY': apiKey,
-        },
-        body: JSON.stringify({ text: userInput }),
-    })
+    const localurl = "https://oamf.arg.tech/helpers/poster.php?url=" + selectedWorkflow + "&apiKey=" + apiKey;
+
+    // fetch(selectedWorkflow, {
+    //     method: 'POST',
+    //     headers: {
+    //         'Content-Type': 'application/json',
+    //         'X-N8N-API-KEY': apiKey,
+    //     },
+    //     body: JSON.stringify({ text: userInput }),
+    // })
+    fetch(localurl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-N8N-API-KEY': apiKey,
+            },
+            body: JSON.stringify({ text: userInput }),
+        })
     .then(response => {
         console.log('Webhook Response:', response);
         if (!response.ok) {
