@@ -275,6 +275,7 @@ div.bottom-buttons {
     min-width: 160px;
     overflow: auto;
     z-index: 1;
+    transform: translateY(-100%);
   }
   
   .dropdown-content a {
@@ -283,7 +284,6 @@ div.bottom-buttons {
     text-decoration: none;
     display: block;
     font-size: 11px;
-    transform: translateY(-100%);
   }
   
   .dropdown a:hover {background-color: #ddd;}
