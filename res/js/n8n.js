@@ -50,7 +50,6 @@ function sendToSvgService(jsonData) {
 
 document.getElementById('triggerWebhookButton').addEventListener('click', () => {
     const userInput = document.getElementById('userInput').value.trim();
-    alert(userInput);
     if (!userInput) {
         alert("Please enter text before triggering the workflow.");
         return;
@@ -93,6 +92,5 @@ document.getElementById('triggerWebhookButton').addEventListener('click', () => 
     .catch(error => {
         console.error('Error:', error);
         //document.getElementById('webhookResponse').innerHTML = `<span class="error">Error: ${error.message}</span>`;
-        alert(error.message);
     });
 });

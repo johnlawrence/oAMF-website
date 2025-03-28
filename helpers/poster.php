@@ -1,5 +1,5 @@
 <?php
-if(isset($_GET['nsID'])){
+if(isset($_GET['apiKey'])){
     print_r($_POST);
 
     $data = $_POST['data'];
@@ -24,5 +24,7 @@ if(isset($_GET['nsID'])){
     curl_close($ch);
     echo $entityBody;
     echo "rrr" . $result;
+}else{
+    echo "No API Key";
 }
 ?>
