@@ -50,6 +50,7 @@ function sendToSvgService(jsonData) {
 
 document.getElementById('triggerWebhookButton').addEventListener('click', () => {
     const userInput = document.getElementById('userInput').value.trim();
+    alert(userInput);
     if (!userInput) {
         alert("Please enter text before triggering the workflow.");
         return;
