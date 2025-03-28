@@ -68,7 +68,7 @@
 
 Speaker2: There are all sorts of other innovations happening. Matt Hancock talked about a test being deployed today that gives you a result in 20 minutes. We have had advances in antibody testing today as well. So the science is really beginning to catch up with this disease. For me the science is really what gives me hope for the future. Hope we can move beyond the strange circumstances of the last few weeks and return to something of a normal life, as the months go by.</textarea>
                 <div class="bottom-buttons">
-                    <button class="btn-bt" style="color: #666;">Select Text</button>
+                    <button class="btn-bt" style="color: #666;" onclick="seltxt()">Select Text</button>
                     <!--<button class="btn-bt" style="color: #666;">Edit Text</button>-->
                 </div>
             </div>
@@ -357,7 +357,11 @@ Speaker2: There are all sorts of other innovations happening. Matt Hancock talke
                     }' frame="true"></n8n-demo>
                   </div>
                   <div class="bottom-buttons">
-                    <button class="btn-bt" style="color: #666;">Select Workflow</button>
+                    <button class="btn-bt" style="color: #666;" onclick="selwf()">Select Workflow</button>
+                    <div id="wfdd" class="dropdown-content">
+                        <a href="#">Workflow 1</a>
+                        <a href="#">Workflow 2</a>
+                      </div>
                     <button class="btn-bt" style="color: #666;" onclick="location.href='https://n8n.oamf.arg.tech/workflow/1'">Edit Workflow</button>
                   </div>
 
@@ -378,6 +382,12 @@ Speaker2: There are all sorts of other innovations happening. Matt Hancock talke
     <script>
         function toggleMenu() {
             document.getElementById('offcanvasMenu').classList.toggle('active');
+        }
+        function selwf() {
+            document.getElementById("wfdd").classList.toggle("show");
+        }
+        function seltxt() {
+            document.getElementById("txtdd").classList.toggle("show");
         }
         document.getElementById("modalclose").onclick = function() {
             document.getElementById('resultsmodal').style.display = "none";
