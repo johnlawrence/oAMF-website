@@ -22,7 +22,7 @@ if(isset($_GET['nsID'])){
 
     //close connection
     curl_close($ch);
-
-    echo $result;
+    echo $entityBody;
+    echo "rrr" . $result;
 }
 ?>
