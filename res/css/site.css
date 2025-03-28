@@ -209,8 +209,8 @@ div.bottom-buttons {
     font-weight: bold;
   }
   
-  #modalcloseclose:hover,
-  #modalcloseclose:focus {
+  #modalclose:hover,
+  #modalclose:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
