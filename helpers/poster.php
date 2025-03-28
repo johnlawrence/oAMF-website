@@ -1,4 +1,6 @@
 <?php
+header('Content-type: application/json');
+
 if(isset($_GET['apiKey'])){
     print_r($_POST);
 
@@ -25,6 +27,6 @@ if(isset($_GET['apiKey'])){
     echo $entityBody;
     echo "rrr" . $result;
 }else{
-    echo "No API Key";
+    echo "{'Error':'No API Key'}";
 }
 ?>
