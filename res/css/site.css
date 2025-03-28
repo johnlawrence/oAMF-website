@@ -284,9 +284,9 @@ div.bottom-buttons {
     text-decoration: none;
     display: block;
     font-size: 11px;
-    background-color: #fff;
+    background-color: #ddd;
   }
   
-  .dropdown a:hover {background-color: #ddd;}
+  .dropdown-content a:hover {background-color: #ccc;}
   
   .show {display: block;}
