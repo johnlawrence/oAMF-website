@@ -43,10 +43,11 @@
     <div id="offcanvasMenu" class="offcanvas-menu">
         <button class="text-btn" style="color: #fff; position:absolute; top:10px; right:10px; font-size: 35px;" onclick="toggleMenu()">&times;</button>
         <ul>
-            <li><a href="#" class="text-white text-decoration-none">Home</a></li>
-            <li><a href="#" class="text-white text-decoration-none">About</a></li>
-            <li><a href="#" class="text-white text-decoration-none">Services</a></li>
-            <li><a href="#" class="text-white text-decoration-none">Contact</a></li>
+            <li><a href="https://github.com/arg-tech/oAMF" class="text-white text-decoration-none">Github Repository</a></li>
+            <li><a href="https://github.com/arg-tech/oAMF/blob/main/docs/tutorial.md" class="text-white text-decoration-none">Documentation</a></li>
+            <li><a href="https://pypi.org/project/oAMF/" class="text-white text-decoration-none">Python Package</a></li>
+            <li><a href="https://n8n.oamf.arg.tech/" class="text-white text-decoration-none">oAMF n8n</a></li>
+            <li><a href="https://libraries.io/pypi/xaif" class="text-white text-decoration-none">XAIF Library</a></li>
         </ul>
     </div>
 
@@ -378,7 +379,7 @@ Speaker2: There are all sorts of other innovations happening. Matt Hancock talke
         function toggleMenu() {
             document.getElementById('offcanvasMenu').classList.toggle('active');
         }
-        document.getElementsById("modalclose").onclick = function() {
+        document.getElementById("modalclose").onclick = function() {
             document.getElementById('resultsmodal').style.display = "none";
         }
     </script>
