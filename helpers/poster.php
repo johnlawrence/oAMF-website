@@ -24,8 +24,7 @@ if(isset($_GET['apiKey'])){
 
     //close connection
     curl_close($ch);
-    echo $entityBody;
-    echo "rrr" . $result;
+    echo $result;
 }else{
     echo "{'Error':'No API Key'}";
 }
