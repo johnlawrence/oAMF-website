@@ -35,7 +35,7 @@
     <div class="dp-row" id="header">
         <div class="dp-col-6 vcenter"><img src="res/img/logo.png" style="width: 150px; margin: 20px 0px 0px 0px;"></div>
         <div class="dp-col-6 dp-text-right vcenter">
-            <button class="btn-gs" style="color: #fff;">Get Started</button>
+            <button class="btn-gs" style="color: #fff;" onclick="location.href='https://github.com/arg-tech/oAMF/tree/main?tab=readme-ov-file#-open-argument-mining-framework-oamf'">Get Started</button>
             <button class="text-btn" style="color: #555;" onclick="toggleMenu()">&#9776;</button>
         </div>
     </div>
@@ -356,11 +356,293 @@ Speaker2: There are all sorts of other innovations happening. Matt Hancock talke
                       "tags": []
                     }' frame="true"></n8n-demo>
                   </div>
+
+                  <div id="workflow2" class="workflow-container" style="display: none;">
+                    <n8n-demo id="workflow2Visualization" theme="light" workflow='{
+                      "name": "My workflow 6",
+                      "nodes": [
+                        {
+                          "parameters": {
+                            "httpMethod": "POST",
+                            "path": "47c193b6-988b-45af-b777-bff42ca01f3c",
+                            "responseMode": "responseNode",
+                            "options": {}
+                          },
+                          "id": "b40cfd66-d80f-4a67-bd6f-8053ec0f511f",
+                          "name": "Webhook",
+                          "type": "n8n-nodes-base.webhook",
+                          "typeVersion": 1,
+                          "position": [
+                            -460,
+                            -760
+                          ],
+                          "webhookId": "e434ee23-8b00-4aca-b59e-5511a452507b"
+                        },
+                        {
+                          "parameters": {
+                            "keepOnlySet": "=true",
+                            "values": {
+                              "string": [
+                                {
+                                  "name": "text",
+                                  "value": "={{$json[\"body\"][\"text\"]}}"
+                                },
+                                {
+                                  "name": "AIF",
+                                  "value": "{}"
+                                }
+                              ],
+                              "boolean": [
+                                {
+                                  "name": "dialog",
+                                  "value": true
+                                }
+                              ]
+                            },
+                            "options": {}
+                          },
+                          "name": "Set Dialog Text",
+                          "type": "n8n-nodes-base.set",
+                          "typeVersion": 1,
+                          "position": [
+                            -220,
+                            -760
+                          ],
+                          "id": "2c1a4435-3f6d-4421-819b-971878032f43"
+                        },
+                        {
+                          "parameters": {
+                            "functionCode": "return items;"
+                          },
+                          "name": "Text to JSON",
+                          "type": "n8n-nodes-base.function",
+                          "typeVersion": 1,
+                          "position": [
+                            20,
+                            -760
+                          ],
+                          "id": "6ebe67e4-0dc0-48dc-a1ea-d24d729cad49"
+                        },
+                        {
+                          "parameters": {
+                            "mode": "jsonToBinary",
+                            "options": {
+                              "fileName": "file.json",
+                              "mimeType": "text/plain"
+                            }
+                          },
+                          "name": "JSON to File",
+                          "type": "n8n-nodes-base.moveBinaryData",
+                          "typeVersion": 1,
+                          "position": [
+                            260,
+                            -760
+                          ],
+                          "id": "0a1a916a-7a14-423c-b46a-fb24edf10a8e"
+                        },
+                        {
+                          "parameters": {
+                            "respondWith": "binary",
+                            "options": {}
+                          },
+                          "id": "5baa8edd-ba5e-4d11-942f-7850fa5573da",
+                          "name": "Respond to Webhook",
+                          "type": "n8n-nodes-base.respondToWebhook",
+                          "typeVersion": 1,
+                          "position": [
+                            700,
+                            -500
+                          ]
+                        },
+                        {
+                          "parameters": {
+                            "requestMethod": "POST",
+                            "url": "http://default-turninator.amfws.arg.tech/turninator-01",
+                            "responseFormat": "file",
+                            "jsonParameters": true,
+                            "options": {
+                              "bodyContentType": "multipart-form-data"
+                            },
+                            "sendBinaryData": true
+                          },
+                          "name": "default-turn-separator–Gemechu-2025",
+                          "type": "n8n-nodes-base.httpRequest",
+                          "typeVersion": 1,
+                          "position": [
+                            -220,
+                            -500
+                          ],
+                          "id": "1e2106ce-38af-4c5a-8605-a1f82b229de8"
+                        },
+                        {
+                          "parameters": {
+                            "requestMethod": "POST",
+                            "url": "http://targer.amfws.arg.tech/targer-segmenter",
+                            "responseFormat": "file",
+                            "jsonParameters": true,
+                            "options": {
+                              "bodyContentType": "multipart-form-data"
+                            },
+                            "sendBinaryData": true
+                          },
+                          "name": "targer-segmenter–Chernodub-201",
+                          "type": "n8n-nodes-base.httpRequest",
+                          "typeVersion": 1,
+                          "position": [
+                            20,
+                            -500
+                          ],
+                          "id": "b27c110b-b075-47b5-bd6f-feab2dc153d2"
+                        },
+                        {
+                          "parameters": {
+                            "requestMethod": "POST",
+                            "url": "http://cascading-propositionUnitiser.amfws.arg.tech/propositionalizer-cascading",
+                            "responseFormat": "file",
+                            "jsonParameters": true,
+                            "options": {
+                              "bodyContentType": "multipart-form-data"
+                            },
+                            "sendBinaryData": true
+                          },
+                          "name": "cascade-propositionaliser–Jo-2019",
+                          "type": "n8n-nodes-base.httpRequest",
+                          "typeVersion": 1,
+                          "position": [
+                            260,
+                            -500
+                          ],
+                          "id": "1d3931d7-e5d4-4274-ae1c-8321ad832a92",
+                          "notesInFlow": false
+                        },
+                        {
+                          "parameters": {
+                            "requestMethod": "POST",
+                            "url": "http://vanilla-caasr.amfws.arg.tech/caasra",
+                            "responseFormat": "file",
+                            "jsonParameters": true,
+                            "options": {
+                              "bodyContentType": "multipart-form-data"
+                            },
+                            "sendBinaryData": true
+                          },
+                          "name": "decoder-relation-identifier–Gemechu-2024",
+                          "type": "n8n-nodes-base.httpRequest",
+                          "typeVersion": 1,
+                          "position": [
+                            480,
+                            -500
+                          ],
+                          "id": "1936c86c-0dcc-4dbc-8305-759022a10528"
+                        }
+                      ],
+                      "pinData": {},
+                      "connections": {
+                        "Webhook": {
+                          "main": [
+                            [
+                              {
+                                "node": "Set Dialog Text",
+                                "type": "main",
+                                "index": 0
+                              }
+                            ]
+                          ]
+                        },
+                        "Set Dialog Text": {
+                          "main": [
+                            [
+                              {
+                                "node": "Text to JSON",
+                                "type": "main",
+                                "index": 0
+                              }
+                            ]
+                          ]
+                        },
+                        "Text to JSON": {
+                          "main": [
+                            [
+                              {
+                                "node": "JSON to File",
+                                "type": "main",
+                                "index": 0
+                              }
+                            ]
+                          ]
+                        },
+                        "JSON to File": {
+                          "main": [
+                            [
+                              {
+                                "node": "default-turn-separator–Gemechu-2025",
+                                "type": "main",
+                                "index": 0
+                              }
+                            ]
+                          ]
+                        },
+                        "default-turn-separator–Gemechu-2025": {
+                          "main": [
+                            [
+                              {
+                                "node": "targer-segmenter–Chernodub-201",
+                                "type": "main",
+                                "index": 0
+                              }
+                            ]
+                          ]
+                        },
+                        "targer-segmenter–Chernodub-201": {
+                          "main": [
+                            [
+                              {
+                                "node": "cascade-propositionaliser–Jo-2019",
+                                "type": "main",
+                                "index": 0
+                              }
+                            ]
+                          ]
+                        },
+                        "cascade-propositionaliser–Jo-2019": {
+                          "main": [
+                            [
+                              {
+                                "node": "decoder-relation-identifier–Gemechu-2024",
+                                "type": "main",
+                                "index": 0
+                              }
+                            ]
+                          ]
+                        },
+                        "decoder-relation-identifier–Gemechu-2024": {
+                          "main": [
+                            [
+                              {
+                                "node": "Respond to Webhook",
+                                "type": "main",
+                                "index": 0
+                              }
+                            ]
+                          ]
+                        }
+                      },
+                      "active": false,
+                      "settings": {},
+                      "versionId": "c8abc310-1a07-48b7-8a62-466629f0007f",
+                      "id": "26",
+                      "meta": {
+                        "instanceId": "6c15c90718aef4097bd8fbcc243a18fdc314a5b141f1af67f7e31c7420cb8f87"
+                      },
+                      "tags": []
+                    }' frame="true"></n8n-demo>
+                  </div>
+
                   <div class="bottom-buttons">
-                    <button class="btn-bt" style="color: #666;" onclick="selwf()">Select Workflow</button>
+                    <button class="btn-bt" style="color: #666;" onclick="selwf(0);">Select Workflow</button>
                     <div id="wfdd" class="dropdown-content">
-                        <a onclick="selwf()">Workflow 1</a>
-                        <a onclick="selwf()">Workflow 2</a>
+                        <a onclick="selwf(1);">Workflow 1</a>
+                        <a onclick="selwf(2);">Workflow 2</a>
                       </div>
                     <button class="btn-bt" style="color: #666;" onclick="location.href='https://n8n.oamf.arg.tech/workflow/1'">Edit Workflow</button>
                   </div>
@@ -383,7 +665,11 @@ Speaker2: There are all sorts of other innovations happening. Matt Hancock talke
         function toggleMenu() {
             document.getElementById('offcanvasMenu').classList.toggle('active');
         }
-        function selwf() {
+        function selwf(wfn) {
+            if(wfn > 0){
+              $('.workflow-container').hide();
+              $('#workflow'+wfn).show();
+            }
             document.getElementById("wfdd").classList.toggle("show");
         }
         function seltxt() {
