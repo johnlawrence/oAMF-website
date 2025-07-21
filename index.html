@@ -60,7 +60,7 @@
     <div class="dp-row content" style="padding: 10px 8% 0px 8%;">
         <h2 style="font-weight: 600; color: #999;">Interactive Demo</h2>
     </div>
-    <div class="dp-row content">
+    <div class="dp-row content steps">
         <div class="dp-col-3 step" id="step1">
             <div class="steplabel"><span>Step 1:</span> Enter Text</div>
             <div class="stepbox">
@@ -68,7 +68,11 @@
 
 Speaker2: There are all sorts of other innovations happening. Matt Hancock talked about a test being deployed today that gives you a result in 20 minutes. We have had advances in antibody testing today as well. So the science is really beginning to catch up with this disease. For me the science is really what gives me hope for the future. Hope we can move beyond the strange circumstances of the last few weeks and return to something of a normal life, as the months go by.</textarea>
                 <div class="bottom-buttons">
-                    <button class="btn-bt" style="color: #666;" onclick="seltxt()">Select Text</button>
+                    <button class="btn-bt" style="color: #666;" onclick="seltxt(0)">Select Text</button>
+                    <div id="txtdd" class="dropdown-content">
+                        <a onclick="seltxt(1);">Sample 1</a>
+                        <a onclick="seltxt(2);">Sample 2</a>
+                      </div>
                     <!--<button class="btn-bt" style="color: #666;">Edit Text</button>-->
                 </div>
             </div>
@@ -672,7 +676,9 @@ Speaker2: There are all sorts of other innovations happening. Matt Hancock talke
             }
             document.getElementById("wfdd").classList.toggle("show");
         }
-        function seltxt() {
+        function seltxt(txtn) {
+            if(txtn > 0){
+            }
             document.getElementById("txtdd").classList.toggle("show");
         }
         window.onclick = function(event) {

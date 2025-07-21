@@ -15,6 +15,18 @@ body,html {
     grid-gap: 0px;  
 }
 
+@media ( max-width: 750px ) {
+    .dp-row.steps {
+        display: grid;
+        grid-template-areas: '. . . . . .';
+        grid-gap: 0px;  
+    }
+
+    .dp-row.steps .step {
+        grid-area: auto / auto / auto / span 6; 
+    }
+}
+
 .vcenter {
     margin: auto 0px;
 }
