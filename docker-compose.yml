@@ -1,0 +1,10 @@
+version: '3'
+services:
+    web:
+        build:
+            context: ./bin/php
+        ports:
+            - "8515:80"
+        volumes:
+            - ./public_html:/var/www/html:Z
+        restart: always
